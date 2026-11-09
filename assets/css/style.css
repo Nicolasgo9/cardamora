@@ -1,0 +1,236 @@
+/* Cardamora · landingspagina
+   Huisstijl: kardemomgroen #4A5A3C, crème #F4EEE3, diepzwart #151515
+   Titels Cormorant Garamond, tekst Inter */
+
+:root {
+  --green: #4A5A3C;
+  --cream: #F4EEE3;
+  --ink: #151515;
+  --muted: #5a5548;
+  --body: #3d3a33;
+  --line: #d8cfbf;
+  --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --pad: clamp(20px, 5vw, 64px);
+  --max: 1320px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--green); }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--cream); padding: 10px 16px; z-index: 10; }
+.skip:focus { left: 12px; top: 12px; }
+
+/* Typografie */
+h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(56px, 10vw, 150px); line-height: 0.92; }
+h1 em { font-style: italic; font-weight: 400; color: var(--green); }
+h2 { font-size: clamp(42px, 6vw, 84px); line-height: 0.98; }
+h3 { font-size: 40px; line-height: 1; }
+
+.eyebrow {
+  margin: 0 0 18px;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--green);
+}
+.lede { font-size: 18px; line-height: 1.6; color: var(--body); max-width: 34ch; margin: 0; }
+.small { font-size: 13px; color: var(--muted); }
+
+/* Knoppen */
+.btn {
+  display: inline-block;
+  padding: 16px 26px;
+  background: var(--green); color: var(--cream);
+  font-size: 15px; font-weight: 500; text-decoration: none;
+  transition: background .25s ease;
+}
+.btn:hover { background: var(--ink); color: var(--cream); }
+.link {
+  font-size: 15px; color: var(--ink); text-decoration: none;
+  border-bottom: 1px solid var(--ink); padding-bottom: 2px;
+}
+.link:hover { color: var(--green); border-color: var(--green); }
+
+/* Navigatie */
+.nav {
+  position: sticky; top: 0; z-index: 5;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px var(--pad);
+  background: rgba(244, 238, 227, 0.92);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(21, 21, 21, 0.08);
+}
+.wordmark {
+  font-family: var(--serif); font-size: 24px; font-weight: 500;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--green); text-decoration: none; margin: 0;
+}
+.nav nav { display: flex; align-items: center; gap: 28px; }
+.nav nav a { font-size: 14px; color: var(--ink); text-decoration: none; }
+.nav nav a:hover { color: var(--green); }
+.nav .nav-cta { padding: 9px 16px; border: 1px solid var(--ink); }
+.nav .nav-cta:hover { background: var(--ink); color: var(--cream); }
+
+/* Hero */
+.hero { padding-top: clamp(48px, 9vw, 120px); }
+.hero-text {
+  display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: end;
+  padding-bottom: clamp(40px, 6vw, 80px);
+}
+.hero-side { display: flex; flex-direction: column; gap: 32px; padding-bottom: 14px; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+.hero-image { margin: 0; background: #2a2622; }
+.hero-image img { width: 100%; height: auto; }
+
+/* Verhaal */
+.story {
+  display: grid; grid-template-columns: 5fr 6fr; gap: clamp(40px, 7vw, 120px);
+  align-items: center;
+  padding-top: clamp(96px, 12vw, 180px); padding-bottom: clamp(96px, 12vw, 180px);
+}
+.story-image { margin: 0; }
+.story-text h2 { margin-bottom: 36px; }
+.story-text p { margin: 0 0 18px; max-width: 54ch; color: var(--body); }
+.story-text .big {
+  font-family: var(--serif); font-size: clamp(24px, 2.4vw, 31px); line-height: 1.3;
+  color: var(--ink); font-style: italic; margin-bottom: 28px; max-width: 30ch;
+}
+.pillars {
+  list-style: none; margin: 44px 0 0; padding: 22px 0 0;
+  border-top: 1px solid var(--ink);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.pillars li { font-size: 14px; color: var(--body); line-height: 1.5; }
+.pillars span { display: block; font-family: var(--serif); font-size: 24px; color: var(--ink); margin-bottom: 4px; }
+
+/* Geuren */
+.scents { padding-bottom: clamp(96px, 12vw, 160px); }
+.scents-head {
+  display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 32px;
+  margin-bottom: 56px;
+}
+.scents-head .eyebrow { grid-column: 1 / -1; margin-bottom: 0; }
+.scents-head .lede { justify-self: end; }
+.scent-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.scent { display: flex; flex-direction: column; }
+.scent img { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; transition: transform .8s ease; }
+.scent:hover img { transform: scale(1.02); }
+.scent { overflow: hidden; }
+.scent-body { padding-top: 18px; border-top: 4px solid var(--accent); margin-top: 14px; }
+.scent h3 { margin-bottom: 8px; }
+.scent .mood { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+.scent p { font-size: 15px; line-height: 1.55; color: var(--body); margin: 0; }
+
+/* Citaat */
+.quote {
+  background: var(--green); color: var(--cream);
+  padding: clamp(80px, 11vw, 160px) var(--pad);
+  text-align: center;
+}
+.quote p {
+  margin: 0 auto; max-width: 16ch;
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-size: clamp(40px, 6vw, 80px); line-height: 1.05;
+}
+.quote em { font-style: normal; }
+
+/* Inschrijven */
+.signup {
+  background: var(--cream) url('../img/linnen.jpg') center / 600px repeat;
+  padding: clamp(96px, 12vw, 160px) 0;
+  position: relative;
+}
+.signup::before { content: ""; position: absolute; inset: 0; background: rgba(244, 238, 227, 0.55); }
+.signup-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
+.signup-text h2 { margin-bottom: 28px; }
+.signup-text p { color: var(--body); max-width: 44ch; margin: 0 0 14px; }
+.signup-form {
+  background: var(--cream);
+  border: 1px solid var(--ink);
+  padding: clamp(8px, 2vw, 24px);
+  min-height: 320px;
+}
+
+/* MailerLite-form in huisstijl (overschrijft de stijl uit MailerLite: Cormorant Garamond i.p.v. Playfair Display) */
+.signup-form .ml-form-embedContainer,
+.signup-form .ml-form-embedWrapper,
+.signup-form .ml-form-embedBody,
+.signup-form .ml-form-successBody { background: transparent !important; border: 0 !important; max-width: 100% !important; width: 100% !important; }
+.signup-form .ml-form-embedWrapper.embedForm { box-shadow: none !important; }
+.signup-form .ml-form-embedContent h4,
+.signup-form .ml-form-successContent h4 {
+  font-family: var(--serif) !important; font-weight: 500 !important;
+  font-size: 40px !important; line-height: 1.05 !important; color: var(--ink) !important;
+  letter-spacing: -0.01em !important;
+}
+.signup-form .ml-form-embedContent p,
+.signup-form .ml-form-successContent p,
+.signup-form .ml-form-checkboxRow .description,
+.signup-form .ml-form-checkboxRow label p {
+  font-family: var(--sans) !important; color: var(--body) !important;
+}
+.signup-form input[type="text"],
+.signup-form input[type="email"] {
+  font-family: var(--sans) !important; font-size: 15px !important;
+  background: #fbf8f2 !important; color: var(--ink) !important;
+  border: 1px solid var(--line) !important; border-radius: 0 !important;
+  padding: 14px 16px !important;
+}
+.signup-form input[type="text"]:focus,
+.signup-form input[type="email"]:focus { border-color: var(--green) !important; outline: none !important; }
+.signup-form button[type="submit"],
+.signup-form .ml-form-embedSubmit button {
+  font-family: var(--sans) !important; font-weight: 500 !important; font-size: 15px !important;
+  background: var(--green) !important; color: var(--cream) !important;
+  border: 0 !important; border-radius: 0 !important; padding: 16px 24px !important;
+}
+.signup-form .ml-form-embedSubmit button:hover { background: var(--ink) !important; }
+
+/* Footer */
+.footer { background: var(--ink); color: var(--cream); padding: 56px 0; }
+.footer-grid { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+.footer .wordmark { color: var(--cream); }
+.footer-tag { font-family: var(--serif); font-style: italic; font-size: 20px; margin: 6px 0 0; color: #cfc6b5; }
+.footer .small { color: #a39b8b; margin: 0; }
+
+/* Fade-in */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 1s ease, transform 1s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* Responsief */
+@media (max-width: 1000px) {
+  .scent-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
+  .hero-text { grid-template-columns: 1fr; gap: 28px; }
+  .hero-side { padding-bottom: 0; }
+}
+@media (max-width: 760px) {
+  .nav nav a:not(.nav-cta) { display: none; }
+  .wordmark { font-size: 19px; letter-spacing: 0.22em; }
+  .story, .signup-grid { grid-template-columns: 1fr; }
+  .scents-head { grid-template-columns: 1fr; }
+  .scents-head .lede { justify-self: start; }
+  .pillars { grid-template-columns: 1fr; gap: 16px; }
+  h3 { font-size: 34px; }
+}
+@media (max-width: 480px) {
+  .scent-grid { grid-template-columns: 1fr; }
+}
